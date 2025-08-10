@@ -1,0 +1,56 @@
+#include "car.hpp"
+
+// Конструктор
+Car::Car(std::string tradeMark, int numberCelinders, int power) :
+    m_tradeMark(tradeMark), m_numberCelinders(numberCelinders), m_power(power) {}
+
+// Геттеры
+std::string Car::getTradeMark() const {
+    return m_tradeMark;
+}
+
+int Car::getNumberCelinders() const {
+    return m_numberCelinders;
+}
+
+int Car::getPower() const {
+    return m_power;
+}
+
+// Сеттеры
+void Car::setTradeMark(const std::string& tradeMark) {
+    m_tradeMark = tradeMark;
+}
+
+void Car::setNumberCelinders(int numberCelinders) {
+    m_numberCelinders = numberCelinders;
+}
+
+void Car::setPower(int power) {
+    m_power = power;
+}
+
+// Реализация оператора вывода
+std::ostream& operator<<(std::ostream& os, const Car& car) {
+    car.displayInfo();
+    return os;
+}
+
+// Реализация оператора ввода
+std::istream& operator>>(std::istream& in, Car& car) {
+    std::string tradeMark;
+    int numberCelinders, power;
+
+    std::cout << "Enter Trademark: ";
+    in >> tradeMark;
+    std::cout << "Enter Number of Cylinders: ";
+    in >> numberCelinders;
+    std::cout << "Enter Engine Power: ";
+    in >> power;
+
+    car.setTradeMark(tradeMark);
+    car.setNumberCelinders(numberCelinders);
+    car.setPower(power);
+
+    return in;
+}
