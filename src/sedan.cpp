@@ -14,3 +14,8 @@ void Sedan::displayInfo() const
     ) << std::endl;
 }
 }
+
+std::unique_ptr<Car> Sedan::clone() const
+{
+    return std::make_unique<Sedan>(*this);
+}

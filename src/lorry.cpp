@@ -4,6 +4,7 @@
 Lorry::Lorry(std::string tradeMark, int numberCelinders, int power, int bodyLoadCapacity) :
     Car(tradeMark, numberCelinders, power), m_bodyLoadCapacity(bodyLoadCapacity) {}
 
+
 // Метод отображения информации
 void Lorry::displayInfo() const {
     std::cout << fmt::format(
@@ -13,6 +14,12 @@ void Lorry::displayInfo() const {
         getPower(),
         getBodyLoadCapacity()
     ) << std::endl;
+}
+
+//Метод клонирования объекта (для создания копии объекта). За место конструктора копирования
+std::unique_ptr<Car> Lorry::clone() const
+{
+    return std::make_unique<Lorry>(*this);
 }
 
 // Геттер грузоподъемности

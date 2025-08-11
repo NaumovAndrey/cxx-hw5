@@ -1,13 +1,18 @@
 #pragma once
 #include <string>
 #include <iostream> 
+#include <memory>
 
 
 class Car {
 public:
     // Конструктор и деструктор
-    Car(std::string tradeMark, int numberCelinders = 0, int power = 0);
+    Car();
+    Car(std::string tradeMark="null", int numberCelinders = 0, int power = 0);
     virtual ~Car() = default;
+    
+    //Конструктор копирования
+    //Car(const Car& other);
 
     // Интерфейс (геттеры и сеттеры)
     std::string getTradeMark() const;
@@ -20,6 +25,7 @@ public:
 
     // Чистая виртуальная функция
     virtual void displayInfo() const = 0;
+    virtual std::unique_ptr<Car> clone() const = 0;
 
     // Перегрузка операторов
     friend std::ostream& operator<<(std::ostream&, const Car&);

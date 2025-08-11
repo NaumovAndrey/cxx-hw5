@@ -11,11 +11,15 @@ public:
 // Конструктор
 Sedan(std::string tradeMark, int numberCelinders, int power);
 
+
 // Деструктор
 ~Sedan() override = default;
 
 // Метод для печати
 void displayInfo() const override;
+
+// Перегрузка метода (оператора копирования)
+std::unique_ptr<Car> clone() const override;
 
 friend std::istream& operator>>(std::istream& in, Sedan& sedan);
 

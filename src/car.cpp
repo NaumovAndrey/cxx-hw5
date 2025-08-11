@@ -1,8 +1,14 @@
 #include "car.hpp"
 
+
 // Конструктор
+Car::Car() {}
 Car::Car(std::string tradeMark, int numberCelinders, int power) :
     m_tradeMark(tradeMark), m_numberCelinders(numberCelinders), m_power(power) {}
+
+//Конструктор копирования
+//Car(const Car& other) : 
+//    m_tradeMark(other.m_tradeMark), m_numberCelinders(other.m_numberCelinders), m_power(other.m_power) {}
 
 // Геттеры
 std::string Car::getTradeMark() const {

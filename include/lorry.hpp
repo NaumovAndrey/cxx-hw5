@@ -1,6 +1,7 @@
 #pragma once
 #include "car.hpp"
 #include <iostream>
+#include <memory>
 #include <string>
 #include <iterator>
 #include <fmt/format.h>
@@ -16,6 +17,7 @@ public:
 
     // Метод для печати
     void displayInfo() const override;
+    std::unique_ptr<Car> clone() const override;
 
     // Получение грузоподъемности
     int getBodyLoadCapacity() const;

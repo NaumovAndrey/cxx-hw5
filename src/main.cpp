@@ -19,5 +19,15 @@ int main()
         std::cout << *car_ptr << "\n";
     });
 
+    //Копирование объектов
+    Lorry lorry("Tonar500", 4, 600, 50);
+    auto lorry_ptr = lorry.clone();
+
+    Sedan sedan("Lada21120", 2, 50);
+    auto sedan_ptr = sedan.clone();
+
+    std::cout << *lorry_ptr << "\n";
+    std::cout << *sedan_ptr << "\n";
+
     return 0;
 }
