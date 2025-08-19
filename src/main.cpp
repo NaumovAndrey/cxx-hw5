@@ -29,5 +29,17 @@ int main()
     std::cout << *lorry_ptr << "\n";
     std::cout << *sedan_ptr << "\n";
 
+
+    //Копирование объектов
+    auto lorry_ptr2(lorry);
+    auto lorry_ptr3(std::make_unique<Lorry>(lorry));
+    std::cout << "lorry_ptr2: " << lorry_ptr2 << "\n";
+    std::cout << "lorry_ptr3: " << *lorry_ptr3 << "\n";
+
+    //Перемещение объектов
+    auto lorry_ptr4(std::move(lorry));
+    std::cout << "lorry_ptr4: " << lorry_ptr4 << "\n";
+    std::cout << "lorry: " << lorry << "\n";
+
     return 0;
 }

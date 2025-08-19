@@ -17,6 +17,14 @@ public:
 
     // Метод для печати
     void displayInfo() const override;
+
+    // Конструктор копирования
+    Lorry(const Lorry& other);
+
+    // Конструктор перемещения
+    Lorry(Lorry&& other) noexcept;
+
+    //Метод клонирования объекта (для создания копии объекта). За место конструктора копирования
     std::unique_ptr<Car> clone() const override;
 
     // Получение грузоподъемности

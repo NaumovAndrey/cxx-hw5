@@ -16,6 +16,12 @@ void Lorry::displayInfo() const {
     ) << std::endl;
 }
 
+// Конструктор копирования
+Lorry::Lorry(const Lorry &other) : Car(other), m_bodyLoadCapacity(other.m_bodyLoadCapacity) {}
+
+// Конструктор перемещения
+Lorry::Lorry(Lorry &&other) noexcept : Car(std::move(other)), m_bodyLoadCapacity(std::move(other.m_bodyLoadCapacity)) {}
+
 //Метод клонирования объекта (для создания копии объекта). За место конструктора копирования
 std::unique_ptr<Car> Lorry::clone() const
 {
@@ -48,3 +54,5 @@ std::istream& operator>>(std::istream& in, Lorry& lorry) {
 
     return in;
 }
+
+
