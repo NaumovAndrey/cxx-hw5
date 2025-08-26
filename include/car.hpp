@@ -9,7 +9,7 @@ public:
     // Конструктор и деструктор
     Car();
     Car(std::string tradeMark="null", int numberCelinders = 0, int power = 0);
-    virtual ~Car() = default;
+    virtual ~Car();
     
     //Конструктор копирования
     //Car(const Car& other);
@@ -18,6 +18,7 @@ public:
     std::string getTradeMark() const;
     int getNumberCelinders() const;
     int getPower() const;
+    static unsigned long getCarCount();
 
     void setTradeMark(const std::string& tradeMark);
     void setNumberCelinders(int numberCelinders);
@@ -39,8 +40,12 @@ public:
     friend std::ostream& operator<<(std::ostream&, const Car&);
     friend std::istream& operator>>(std::istream&, Car&);
 
-private:
+    static void updateCarCount(bool increase);
+
+protected:
     std::string m_tradeMark;
     int m_numberCelinders;
     int m_power;
+
+    static unsigned long m_carCount;
 };

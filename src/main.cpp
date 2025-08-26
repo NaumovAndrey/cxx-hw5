@@ -41,5 +41,7 @@ int main()
     std::cout << "lorry_ptr4: " << lorry_ptr4 << "\n";
     std::cout << "lorry: " << lorry << "\n";
 
+    std::cout << "cars: " << Car::getCarCount() << "\n";
+
     return 0;
 }

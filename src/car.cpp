@@ -1,10 +1,20 @@
 #include "car.hpp"
 
 
+unsigned long Car::m_carCount = 0;
+
 // Конструктор
 Car::Car() {}
 Car::Car(std::string tradeMark, int numberCelinders, int power) :
-    m_tradeMark(tradeMark), m_numberCelinders(numberCelinders), m_power(power) {}
+    m_tradeMark(tradeMark), m_numberCelinders(numberCelinders), m_power(power)
+{
+    updateCarCount(true);
+}
+ 
+Car::~Car()
+{
+    updateCarCount(false); 
+}
 
 //Конструктор копирования
 //Car(const Car& other) : 
@@ -21,6 +31,11 @@ int Car::getNumberCelinders() const {
 
 int Car::getPower() const {
     return m_power;
+}
+
+unsigned long Car::getCarCount()
+{
+    return m_carCount;
 }
 
 // Сеттеры
@@ -60,3 +75,16 @@ std::istream& operator>>(std::istream& in, Car& car) {
 
     return in;
 }
+
+void Car::updateCarCount(bool increase)
+{
+    if (increase)
+    {
+        ++Car::m_carCount;
+    }
+    else
+    {
+        --Car::m_carCount;
+    }
+}
+
