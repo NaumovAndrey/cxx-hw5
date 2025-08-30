@@ -4,6 +4,7 @@
 Lorry::Lorry(std::string tradeMark, int numberCelinders, int power, int bodyLoadCapacity) :
     Car(tradeMark, numberCelinders, power), m_bodyLoadCapacity(bodyLoadCapacity) {}
 
+Lorry::Lorry(){}
 
 // Метод отображения информации
 void Lorry::displayInfo() const {
@@ -14,6 +15,17 @@ void Lorry::displayInfo() const {
         getPower(),
         getBodyLoadCapacity()
     ) << std::endl;
+}
+
+Lorry &Lorry::operator=(const Lorry &other)
+{
+    if(this != &other) {
+        Car::operator=(other);
+
+        m_bodyLoadCapacity = other.m_bodyLoadCapacity;
+
+        return *this;
+    }
 }
 
 // Конструктор копирования

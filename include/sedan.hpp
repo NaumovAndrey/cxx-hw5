@@ -9,11 +9,18 @@ class Sedan : public Car
 {
 public:
 // Конструктор
+Sedan();
 Sedan(std::string tradeMark, int numberCelinders, int power);
 
 
 // Деструктор
 ~Sedan() override = default;
+
+//реализация оператора присваивания
+Sedan& operator=(const Sedan& other);
+
+// Конструктор копирования
+Sedan(const Sedan& other);
 
 // Метод для печати
 void displayInfo() const override;

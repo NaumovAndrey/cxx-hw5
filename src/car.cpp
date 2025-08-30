@@ -3,7 +3,7 @@
 
 unsigned long Car::m_carCount = 0;
 
-// Конструктор
+// Конструкторы
 Car::Car() {}
 Car::Car(std::string tradeMark, int numberCelinders, int power) :
     m_tradeMark(tradeMark), m_numberCelinders(numberCelinders), m_power(power)

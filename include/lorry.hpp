@@ -9,7 +9,8 @@
 
 class Lorry : public Car {
 public:
-    // Конструктор
+    // Конструкторы
+    Lorry();
     Lorry(std::string tradeMark, int numberCelinders, int power, int bodyLoadCapacity);
 
     // Деструктор
@@ -17,6 +18,9 @@ public:
 
     // Метод для печати
     void displayInfo() const override;
+
+    // Оператор присваивания
+    Lorry& operator=(const Lorry& other);
 
     // Конструктор копирования
     Lorry(const Lorry& other);

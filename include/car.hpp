@@ -33,6 +33,9 @@ public:
     // Вывод информации
     virtual void displayInfo() const = 0;
 
+    //Оператор присваивания
+    virtual Car& operator=(const Car& other) = 0;
+
     // Замена оператора копирования
     virtual std::unique_ptr<Car> clone() const = 0;
 
